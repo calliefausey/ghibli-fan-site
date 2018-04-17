@@ -30,3 +30,19 @@ a[aria-expanded="false"]::before, a[aria-expanded="true"]::before {
 a[aria-expanded="true"]::before {
     content: '\e260';
 }
+
+#home-img {
+	align-self: center;
+	margin: 50px;
+}
+
+#intro {
+	font-family: fixedsys;
+	text-align: center-left;
+	margin: 20px;
+}
+
+#links {
+	text-align: center-right;
+	margin: 20px;
+}
