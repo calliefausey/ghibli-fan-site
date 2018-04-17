@@ -13,7 +13,7 @@ app.debug = True
 
 @app.route('/')
 def home():
-    return render_template('home.html', posts=posts_to_html())
+    return render_template('home.html')
     
 if __name__ == '__main__':
     app.run()
