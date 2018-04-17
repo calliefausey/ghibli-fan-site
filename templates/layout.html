@@ -1,4 +1,4 @@
-!<DOCTYPE html>
+<!DOCTYPE html>
 <html>
     <head>
         <meta charset="utf-8">
@@ -6,7 +6,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-        <link rel="stylesheet" href="static/style-sucks.css">
+        <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+        <script type="text/javaScript" src="static/navbar-script.js"></script>
         <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
         
@@ -20,16 +21,16 @@
                 </div>
                 
                 <ul class="list-unstyled components">
-                    <li class="active"><a href="#">Home</a></li>
-                    <li><a href="#">Forum</a></li>
+                    <li class="active"><a href="/">Home</a></li>
+                    <li><a href="/forum">Forum</a></li>
                     <li><!-- Link with dropdown items -->
-                        <a href="#quizSubmenu" data-toggle="collapse" aria-expanded="false">Pages</a>
-                        <ul class="collapse list-unstyled" id="homeSubmenu">
-                            <li><a href="#">Fan Quiz</a></li>
-                            <li><a href="#">Film for Mood Quiz</a></li>
+                        <a href="#quizSubmenu" data-toggle="collapse" aria-expanded="false">Quizzes</a>
+                        <ul class="collapse list-unstyled" id="quizSubmenu">
+                            <li><a href="/fan-quiz">Fan Quiz</a></li>
+                            <li><a href="/film-for-mood-quiz">Film for Mood Quiz</a></li>
                         </ul>
                     </li>
-                    <li><a href="#">Profile</a></li>
+                    <li><a href="/profile">Profile</a></li>
                 </ul>
             </nav>
             
@@ -38,8 +39,9 @@
                     <i class="glyphicon glyphicon-align-left"></i>
                     Toggle Sidebar
                 </button>
+                <br>
+                {% block content %}{% endblock %}
             </div>
         </div>
-        <div id="content">{% block content %}{% endblock %}</div>
     </body>
 </html>
