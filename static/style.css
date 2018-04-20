@@ -3,7 +3,7 @@
     align-items: stretch;
 }
 
-a {
+.navlink {
     display: block;
     font-size: 20px;
     color: white;
@@ -14,7 +14,7 @@ a {
     margin-botton: 10px;
 }
 
-a:hover {
+.navlink:hover {
     color: black;
     background-color: white;
 }
@@ -23,12 +23,11 @@ a:hover {
     min-width: 200px;
     max-width: 200px;
     min-height: 100vh;
-    margin-left: -200px;
     background-color: #41bee1;
 }
 
 #sidebar.active {
-    margin-left: 0px;
+    margin-left: -200px;
 }
 
 #sidebarCollapse {
@@ -61,12 +60,20 @@ a[aria-expanded="true"]::before {
 }
 
 #intro {
-	font-family: fixedsys;
+    float: left;
+    display: inline;
+    width: 40%;
+    max-width: 500px;
+    font-family: fixedsys;
 	text-align: center-left;
 	margin: 20px;
 }
-
+    
 #links {
-	text-align: center-right;
+    float: left;
+    display: inline;
+    width: 40%;
+    font-family: fixedsys;
+	text-align: center-left;
 	margin: 20px;
 }
