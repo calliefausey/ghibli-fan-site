@@ -3,24 +3,26 @@
 {% block title %}Home{% endblock %}
 
 {% block content %}
-    <div id="header">
-        <h1>Home</h1>
-        <img src="{{ url_for('static', filename='studiog.png') }}" id="home-img" alt="what happen">
-    </div>
-    <div id="home-content">
-        <div id="intro">
-            <h4>Welcome!</h4>
-            <p> "Hello! Welcome to our Studio Ghibli fan website. Whether you're a die
-            hard fan or only recently getting into Miyazaki's films, we have something for you! Feel free to browse
-            and post to forum or take our quizzes! Create your own fan profile to store your personal scores and let others
-            know what kind of fan you are!"</p>
+    <div id="home">
+        <div id="header">
+            <h1>Home</h1>
+            <img src="{{ url_for('static', filename='studiog.png') }}" id="home-img" alt="what happen">
         </div>
-        <div id="links">
-            <h4>Links</h4>
-            <p> Browse using our menu or by clicking any of the links below!</p>
-            <a href="/film-for-mood-quiz">What Ghibli film should I watch based on my mood? (Quiz)</a> <br>
-            <a href="/forum">Post to our forum and read other fan's comments!</a> <br>
-            <a href="/fan-quiz">How much do you know about Ghibli? Test your knowledge! (Quiz)</a> <br>
+        <div id="home-content">
+            <div id="intro">
+                <h4>Welcome!</h4>
+                <p> "Hello! Welcome to our Studio Ghibli fan website. Whether you're a die
+                hard fan or only recently getting into Miyazaki's films, we have something for you! Feel free to browse
+                and post to forum or take our quizzes! Create your own fan profile to store your personal scores and let others
+                know what kind of fan you are!"</p>
+            </div>
+            <div id="links">
+                <h4>Links</h4>
+                <p> Browse using our menu or by clicking any of the links below!</p>
+                <a href="/film-for-mood-quiz">What Ghibli film should I watch based on my mood? (Quiz)</a> <br>
+                <a href="/forum">Post to our forum and read other fan's comments!</a> <br>
+                <a href="/fan-quiz">How much do you know about Ghibli? Test your knowledge! (Quiz)</a> <br>
+            </div>
         </div>
     </div>
 {% endblock %}
