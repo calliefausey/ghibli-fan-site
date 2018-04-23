@@ -67,6 +67,7 @@ a[aria-expanded="true"]::before {
     font-family: fixedsys;
 	text-align: center-left;
 	margin: 20px;
+    margin-left: 40px;
 }
     
 #links {
@@ -76,4 +77,10 @@ a[aria-expanded="true"]::before {
     font-family: fixedsys;
 	text-align: center-left;
 	margin: 20px;
+    margin-left: 30px;
+}
+
+#home {
+    text-align: center;
+    margin-left: 15%;
 }
