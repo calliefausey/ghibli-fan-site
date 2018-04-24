@@ -1,0 +1,3 @@
+@ECHO off
+
+set SECRET_KEY=IMQZwYRfGozYr67LiQPynkP1ScvPY7FY

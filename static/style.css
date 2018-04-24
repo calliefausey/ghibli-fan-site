@@ -83,4 +83,6 @@ a[aria-expanded="true"]::before {
 #home {
     text-align: center;
     margin-left: 15%;
+    width: 100%;
+    background-color: green;
 }
