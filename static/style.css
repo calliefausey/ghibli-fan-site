@@ -63,11 +63,12 @@ a[aria-expanded="true"]::before {
     float: left;
     display: inline;
     width: 40%;
-    max-width: 500px;
+    max-width: 600px;
     font-family: fixedsys;
 	text-align: center-left;
-	margin: 20px;
-    margin-left: 40px;
+	padding: 20px;
+    padding-left: 50px;
+    background-color: #fafafa;
 }
     
 #links {
@@ -78,11 +79,12 @@ a[aria-expanded="true"]::before {
 	text-align: center-left;
 	margin: 20px;
     margin-left: 30px;
+    background-color: #fafafa;
 }
 
 #home {
     text-align: center;
     margin-left: 15%;
     width: 100%;
-    background-color: green;
+    background-color: #fafafa;
 }
