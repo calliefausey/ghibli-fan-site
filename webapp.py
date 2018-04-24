@@ -11,6 +11,8 @@ app = Flask(__name__)
 
 app.debug = True
 
+app.secret_key = os.environ['SECRET_KEY']
+
 
 @app.route('/')
 def home():
@@ -29,13 +31,13 @@ def renderAnswerPage():
     session["answer4"] = request.form["answer4"]
     session["answer5"] = request.form["answer5"]
     score = 0
-    if session["answer1"].lower() == "Hayao Miyazaki":
+    if session["answer1"].lower() == "hayao miyazaki":
         score+=1
-    if session["answer2"].lower() == "Castle in the Sky":
+    if session["answer2"].lower() == "castle in the sky":
         score+=1
     if session["answer3"].lower() == "pig":
         score+=1
-    if session["answer4"].lower() == "Jiji":
+    if session["answer4"].lower() == "jiji":
         score+=1
     if session["answer5"].lower() == "forest":
         score+=1
