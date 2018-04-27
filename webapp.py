@@ -22,11 +22,34 @@ url = 'mongodb://{}:{}@{}:{}/{}'.format(
     
 client = pymongo.MongoClient(url)
 db = client[os.environ["MONGO_DBNAME"]]
-ghibli-forum = db['ghibli-forum']
+ghibli_forum = db['posts']
 
+oauth = OAuth(app)
+
+
+#github = oauth.remote_app(
+    #'github',
+    #consumer_key=os.environ['GITHUB_CLIENT_ID'], #your web app's "username" for github's OAuth
+    #consumer_secret=os.environ['GITHUB_CLIENT_SECRET'],#your web app's "password" for github's OAuth
+    #request_token_params={'scope': 'user:email'}, #request read-only access to the user's email.  For a list of possible scopes, see developer.github.com/apps/building-oauth-apps/scopes-for-oauth-apps
+    #base_url='https://api.github.com/',
+    #request_token_url=None,
+    #access_token_method='POST',
+    #access_token_url='https://github.com/login/oauth/access_token',  
+    #authorize_url='https://github.com/login/oauth/authorize' #URL for github's OAuth login
+#)
+
+@app.context_processor
+def inject_logged_in():
+    return {"logged_in":('github_token' in session)}
+    
 @app.route('/')
 def home():
     return render_template('home.html')
+    
+@app.route('/forum')
+def forum():
+    return render_template('forum.html')
 
 @app.route('/fan-quiz')
 def fanQuiz():
@@ -63,7 +86,7 @@ def post():
 	message = request.form['message']
 	try:
 		post = {"username": username, "message": message}
-		post_id = ghibli-forum.insert_one(post).inserted_id
+		post_id = ghibli_forum.insert_one(post).inserted_id
 		post_id
 	except Exception as e:
 		print("error")
@@ -74,7 +97,7 @@ def post():
 def posts_to_db():
 	post_table = Markup("<table class='table table-bordered'> <tr> <th> User </th> <th> Ghibli </th> </tr>")
 	try:
-		for p in ghibli-forum.find():
+		for p in ghibli_forum.find():
 			post_id= p["_id"]
 			print("Username: " + p["username"] + " Message: " + p["message"])
 			post_table += Markup("<tr> <td>" + p["username"] + "</td> <td>" + p["message"] + "</td> <td>" + "<form action = '/delete' method = 'post'> <button type='submit' name='delete' value='" + str(post_id) + "'>Delete</button></form>" + "</td>")
@@ -87,7 +110,7 @@ def posts_to_db():
 def delete():
 	id=request.form['delete']
 	try:
-		db.ghibli-forum.delete_one( { "_id" : ObjectId(id) } )	
+		db.ghibli_forum.delete_one( { "_id" : ObjectId(id) } )	
 	except Exception as e:
 		print("error")
 		print(e)
