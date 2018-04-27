@@ -22,7 +22,7 @@ url = 'mongodb://{}:{}@{}:{}/{}'.format(
     
 client = pymongo.MongoClient(url)
 db = client[os.environ["MONGO_DBNAME"]]
-ghibli-forum = db['ghibli-forum']
+ghibli_forum = db['posts']
 
 @app.route('/')
 def home():
@@ -30,7 +30,32 @@ def home():
 
 @app.route('/fan-quiz')
 def fanQuiz():
-    return render_template('fan-quiz.html')
+    state = ""
+    if "answer1" in request.form:
+        state = "answer"
+        session["answer1"] = request.form["answer1"]
+        session["answer2"] = request.form["answer2"]
+        session["answer3"] = request.form["answer3"]
+        session["answer4"] = request.form["answer4"]
+        session["answer5"] = request.form["answer5"]
+        score = 0
+        if session["answer1"].lower() == "hayao miyazaki":
+            score+=1
+        if session["answer2"].lower() == "castle in the sky":
+            score+=1
+        if session["answer3"].lower() == "pig":
+            score+=1
+        if session["answer4"].lower() == "jiji":
+            score+=1
+        if session["answer5"].lower() == "forest":
+            score+=1
+        if "highScore" not in session:
+            session["highScore"] = score
+        elif score > session["highScore"]:
+            session["highScore"] = score
+    else:
+        state = "quiz"
+    return render_template('fan-quiz.html', state = state)
 	
 @app.route('/answerPage',methods=['GET','POST'])
 def renderAnswerPage():

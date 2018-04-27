@@ -88,3 +88,13 @@ a[aria-expanded="true"]::before {
     margin-left: 15%;
     width: 100%;
 }
+
+#fan-quiz {
+    margin: 30px;
+}
+
+.question {
+    margin: 10px;
+    margin-left: 30px;
+    margin-bottom: 30px;
+}
