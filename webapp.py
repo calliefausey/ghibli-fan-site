@@ -51,11 +51,10 @@ def home():
 def forum():
     return render_template('forum.html')
 
-@app.route('/fan-quiz')
+@app.route('/fan-quiz', methods=['GET', 'POST'])
 def fanQuiz():
     state = ""
     if "answer1" in request.form:
-        state = "answer"
         session["answer1"] = request.form["answer1"]
         session["answer2"] = request.form["answer2"]
         session["answer3"] = request.form["answer3"]
@@ -76,9 +75,9 @@ def fanQuiz():
             session["highScore"] = score
         elif score > session["highScore"]:
             session["highScore"] = score
+        return render_template('fan-quiz.html', currentScore = score, highScore = session["highScore"], state = 'answer')
     else:
-        state = "quiz"
-    return render_template('fan-quiz.html', state = state)
+        return render_template('fan-quiz.html', state = 'quiz')
 	
 @app.route('/answerPage',methods=['GET','POST'])
 def renderAnswerPage():

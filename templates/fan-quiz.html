@@ -4,10 +4,10 @@
 
 {% block content %}
     <div id="fan-quiz">
-        {% if state == quiz %}
+        {% if state == 'quiz' %}
             <h1>How much do you know about Studio Ghibli?</h1>
 
-            <form action={{ url_for("renderAnswerPage") }} method="POST">
+            <form action={{ url_for("fanQuiz") }} method="POST">
                 <div class="question">
                     Who was the head founder for Studio Ghibli?<br>
                     <img src="{{ url_for('static', filename='miyazaki.jpg') }}" alt="Miyazaki" width="300px" height="200px"><br>
@@ -41,12 +41,14 @@
                     <input type="submit" value="submit">
                 </div>
             </form>
-        {% endif %}
-        {% elif state == answer %}
+        {% elif state == 'answer' %}
             <h1>AnswerPage</h1>
             <p>Your score is: {{ currentScore }}</p>
-            <br>
             <p>The high score is: {{ highScore }}</p>
+            <br>
+            <a href='/fan-quiz'>
+                <button class="standard">Retake the quiz</button>
+            </a>
         {% endif %}
     </div>
         
