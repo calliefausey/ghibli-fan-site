@@ -136,5 +136,13 @@ def authorized():
 			message='Unable to login, please try again.  '
 	return render_template('message.html', message=message)
     
+@app.route('/update-post')
+def updatePost():
+    return Markup("<form action='/posted' method='post'><textarea name='message' style='width:100%; height:100px;'></textarea><br><input type='submit' value='Post'></form>")
+
+@app.route('/update-cancel')
+def updateCancel():
+    return Markup("<button id='toggle' value='cancel'>Cancel</button>")
+
 if __name__ == '__main__':
     app.run()
