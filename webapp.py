@@ -138,11 +138,11 @@ def authorized():
     
 @app.route('/update-post')
 def updatePost():
-    return Markup("<form action='/posted' method='post'><textarea name='message' style='width:100%; height:100px;'></textarea><br><input type='submit' value='Post'></form>")
+    return Markup("")
 
 @app.route('/update-cancel')
 def updateCancel():
-    return Markup("<button id='toggle' value='cancel'>Cancel</button>")
+    return Markup("<button id='toggle' value='post'>Post</button>")
 
 if __name__ == '__main__':
     app.run()

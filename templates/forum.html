@@ -3,18 +3,22 @@
 {% block title %}Ghibli Forum{% endblock %}
 
 {% block content %}
-  <h1>Share your thoughts about your favorite films!</h1>
+    <script type="text/javaScript" src="{{ url_for('static', filename='forum-script.js') }}"></script>
+    
+    <h1>Share your thoughts about your favorite films!</h1>
+    {% if true %}
+        <div id="post">
+            <form id="post-form" action='/posted' method='POST'>
+                <textarea name='message' style='width:100%; height:100px;'></textarea>
+                <br>
+                <input type='submit' value='submit'>
+                <input id ='post-toggle-off' type='button' value='cancel'>
+            </form>
+        </div>
+        <button id="post-toggle-on">Make a Post</button>
+    {% else %}
+        <p>Log in to post!</p>
+    {% endif %}
 
-  
- 
-  {% if true %}
-    <div id="toggle-post">
-        <button id="toggle" value="post">Post</button>
-    </div>
-  {% else %}
-    <p>Log in to post!</p>
-  {% endif %}
-
-  {{ past_posts }}
-
+    {{ past_posts }}
 {% endblock %}
