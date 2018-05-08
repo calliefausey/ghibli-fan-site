@@ -11,7 +11,7 @@
     min-width: 200px;
     padding-left: 20px;
     margin-top: 10px;
-    margin-botton: 10px;
+    margin-bottom: 10px;
 }
 
 .navlink:hover {
@@ -24,6 +24,10 @@
     max-width: 200px;
     min-height: 100vh;
     background-color: #41bee1;
+}
+
+#sidebar-header {
+    margin-left: 15px;
 }
 
 #sidebar.active {
@@ -71,7 +75,7 @@ a[aria-expanded="true"]::before {
     margin-left: 70px;
     margin-right: -10px;
 }
-    
+
 #links {
     float: left;
     display: inline;
@@ -87,4 +91,22 @@ a[aria-expanded="true"]::before {
     text-align: center;
     margin-left: 15%;
     width: 100%;
+}
+
+#fan-quiz {
+    margin: 20px;
+}
+
+.question {
+    margin: 10px;
+    margin-left: 30px;
+    margin-bottom: 30px;
+}
+
+.standard {
+    padding: 8px;
+    border: none;
+    color: white;
+    background-color: #41bee1;
+    border-radius: 4px;
 }

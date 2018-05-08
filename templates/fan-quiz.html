@@ -3,34 +3,53 @@
 {% block title %}Fan Quiz!{% endblock %}
 
 {% block content %}
-  <h1>How much do you know about Studio Ghibli?</h1>
+    <div id="fan-quiz">
+        {% if state == 'quiz' %}
+            <h1>How much do you know about Studio Ghibli?</h1>
 
-  <form action={{ url_for("renderAnswerPage") }} method="POST">
-	Who was the head founder for Studio Ghibli?<br>
-	<img src="{{ url_for('static', filename='miyazaki.jpg') }}" alt="Miyazaki" width="300px" height="200px"><br>
-	Answer:<br>
-	<input type="text" name="answer1">
-	<br>
-	What was the title of the first film released by Studio Ghibli?<br>
-	<img src="{{ url_for('static', filename='ghibli-first.jpg') }}" alt="cits" width="300px" height="200px"><br>
-	Answer:<br>
-	<input type="text" name="answer2">
-	<br>
-	"Spirited Away" follows the story of a young girl whose parents were turned into what farm animal?<br>
-	<img src="{{ url_for('static', filename='sa.jpg') }}" alt="sa" width="300px" height="200px"><br>
-	Answer:<br>
-	<input type="text" name="answer3">
-	<br>
-	In "Kiki's Delivery Service", what was the name of Kiki's beloved cat sidekick?<br>
-	<img src="{{ url_for('static', filename='jiji.png') }}" alt="kds" width="300px" height="200px"><br>
-	Answer:<br>
-	<input type="text" name="answer4">
-	<br>
-	What is the setting where Mei first encounters Totoro in "My Neighbor Totoro"?<br>
-	<img src="{{ url_for('static', filename='totoro.jpg') }}" alt="totoro" width="300px" height="200px"><br>
-	Answer:<br>
-	<input type="text" name="answer5">
-	<br>
-	<input type="submit" value="submit">
-  </form>
+            <form action={{ url_for("fanQuiz") }} method="POST">
+                <div class="question">
+                    Who was the head founder for Studio Ghibli?<br>
+                    <img src="{{ url_for('static', filename='miyazaki.jpg') }}" alt="Miyazaki" width="300px" height="200px"><br>
+                    Answer:<br>
+                    <input type="text" name="answer1">
+                </div>
+                <div class="question">
+                    What was the title of the first film released by Studio Ghibli?<br>
+                    <img src="{{ url_for('static', filename='ghibli-first.jpg') }}" alt="cits" width="300px" height="200px"><br>
+                    Answer:<br>
+                    <input type="text" name="answer2">
+                </div>
+                <div class="question">
+                    "Spirited Away" follows the story of a young girl whose parents were turned into what farm animal?<br>
+                    <img src="{{ url_for('static', filename='sa.jpg') }}" alt="sa" width="300px" height="200px"><br>
+                    Answer:<br>
+                    <input type="text" name="answer3">
+                </div>
+                <div class="question">
+                    In "Kiki's Delivery Service", what was the name of Kiki's beloved cat sidekick?<br>
+                    <img src="{{ url_for('static', filename='jiji.png') }}" alt="kds" width="300px" height="200px"><br>
+                    Answer:<br>
+                    <input type="text" name="answer4">
+                </div>
+                <div class="question">
+                    What is the setting where Mei first encounters Totoro in "My Neighbor Totoro"?<br>
+                    <img src="{{ url_for('static', filename='totoro.jpg') }}" alt="totoro" width="300px" height="200px"><br>
+                    Answer:<br>
+                    <input type="text" name="answer5">
+                    <br>
+                    <input type="submit" value="submit">
+                </div>
+            </form>
+        {% elif state == 'answer' %}
+            <h1>AnswerPage</h1>
+            <p>Your score is: {{ currentScore }}</p>
+            <p>The high score is: {{ highScore }}</p>
+            <br>
+            <a href='/fan-quiz'>
+                <button class="standard">Retake the quiz</button>
+            </a>
+        {% endif %}
+    </div>
+        
 {% endblock %}
