@@ -49,7 +49,7 @@ def home():
     
 @app.route('/forum')
 def forum():
-    return render_template('forum.html')
+    return render_template('forum.html', posts = posts_to_html())
 
 @app.route('/fan-quiz', methods=['GET', 'POST'])
 def fanQuiz():
@@ -85,18 +85,18 @@ def post():
     message = request.form['message']
     try:
         collection.insert(
-            {"user": username, "msg": message}
+            {"user": username, "post": message}
         )
     except Exception as e:
         print('Unable to load database')
         print(e)
-    return render_template('home.html', posts=posts_to_html())
+    return render_template('forum.html', posts = posts_to_html())
     
 def posts_to_html():
     try:
         table = Markup("<table class='table table-bordered'><tr><th>User</th><th>Post</th><th>Delete</th></tr>")
         for value in collection.find():
-            table += Markup("<tr><td>" + value["user"] + "</td><td>" + value["msg"] + "</td><td><form action='/delete' method='post'><button type='submit' name='delete' value='" + str(value["_id"]) + "'>Delete</button></form></td></tr>")
+            table += Markup("<tr><td>" + value["user"] + "</td><td>" + value["post"] + "</td><td><form action='/delete' method='post'><button type='submit' name='delete' value='" + str(value["_id"]) + "'>Delete</button></form></td></tr>")
         table += Markup("</table>")
     except Exception as e:
         table = Markup('<p>There was an error loading the table data</p>')
@@ -108,7 +108,7 @@ def delete():
     #delete posts
     global collection
     collection.delete_one({"_id" : ObjectId(request.form['delete'])})
-    return render_template('home.html', posts=posts_to_html())
+    return render_template('forum.html', posts=posts_to_html())
 	
 @app.route('/login')
 def login():   
