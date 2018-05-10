@@ -50,6 +50,13 @@ def home():
 @app.route('/forum')
 def forum():
     return render_template('forum.html')
+    
+ @app.route('/mood-quiz')
+ def moodQuiz():
+    maxValue = 0
+    maxValueName = ''
+    moodDic = ['A': 
+ 
 
 @app.route('/fan-quiz', methods=['GET', 'POST'])
 def fanQuiz():
