@@ -1,6 +1,8 @@
 from flask import Flask, redirect, url_for, session, request, jsonify, Markup
 from flask_oauthlib.client import OAuth
 from flask import render_template
+from bson.objectid import ObjectId
+
 import pymongo
 import pprint
 import os
@@ -22,7 +24,7 @@ url = 'mongodb://{}:{}@{}:{}/{}'.format(
     
 client = pymongo.MongoClient(url)
 db = client[os.environ["MONGO_DBNAME"]]
-ghibli_forum = db['posts']
+collection = db['posts']
 
 oauth = OAuth(app)
 
