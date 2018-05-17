@@ -5,7 +5,7 @@
 {% block content %}
     <div id="mood-quiz">
         {% if state == 'quiz' %}
-            <h1>Which movie u feelin</h1>
+            <h1>Which movie should you watch based on your mood?</h1>
 
             <form action={{ url_for("moodQuiz") }} method="POST">
                 <div class="question">
@@ -16,9 +16,9 @@
                 </div>
                 <div class="question">
                     Which activity sounds the most appealing to you?<br>
-					<input type="radio" name="question2" value="A">Self discovery journey<br>
-					<input type="radio" name="question2" value="B">Relaxing<br>
-					<input type="radio" name="question2" value="C">Going outside/exploring<br>
+					<input type="radio" name="question2" value="A">A journey of self discovery<br>
+					<input type="radio" name="question2" value="B">Going outside and exploring<br>
+					<input type="radio" name="question2" value="C">Flying a plane<br>
                 </div>
                 <div class="question">
                     Which genre interests you?<br>
@@ -29,8 +29,8 @@
                 <div class="question">
                   If you could be anywhere in the world right now where would you be?<br>
 					<input type="radio" name="question4" value="A">Coffee shop<br>
-					<input type="radio" name="question4" value="B">A beach<br>
-					<input type="radio" name="question4" value="C">A forest<br>
+					<input type="radio" name="question4" value="B">A beach/The Forest<br>
+					<input type="radio" name="question4" value="C">In the clouds<br>
                 </div>
                 <div class="question">
                     What food are you craving most?<br>
