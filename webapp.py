@@ -53,8 +53,8 @@ def home():
 def forum():
     return render_template('forum.html', posts = posts_to_html())
     
- @app.route('/mood-quiz')
- def moodQuiz():
+@app.route('/mood-quiz')
+def moodQuiz():
     maxValue = 0
     maxValueName = ''
     moodDic = ['A': 
