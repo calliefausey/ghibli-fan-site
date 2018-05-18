@@ -7,38 +7,41 @@
         {% if state == 'quiz' %}
             <h1>Which movie should you watch based on your mood?</h1>
 
-            <form action={{ url_for("moodQuiz") }} method="POST">
+            <form action="/mood-quiz" method="POST">
                 <div class="question">
-					If you had to choose, which color would you say you are today?<br>
-					<input type="radio" name="question1" value="A">Blue<br>
-					<input type="radio" name="question1" value="B">Green<br>
-					<input type="radio" name="question1" value="C">Red<br>
+                    If you had to choose, which color would you say you are today?<br>
+                    <input type="radio" name="question1" value="A">Blue<br>
+                    <input type="radio" name="question1" value="B">Green<br>
+                    <input type="radio" name="question1" value="C">Red<br>
                 </div>
                 <div class="question">
                     Which activity sounds the most appealing to you?<br>
-					<input type="radio" name="question2" value="A">A journey of self discovery<br>
-					<input type="radio" name="question2" value="B">Going outside and exploring<br>
-					<input type="radio" name="question2" value="C">Flying a plane<br>
+                    <input type="radio" name="question2" value="A">A journey of self discovery<br>
+                    <input type="radio" name="question2" value="B">Going outside and exploring<br>
+                    <input type="radio" name="question2" value="C">Flying a plane<br>
                 </div>
                 <div class="question">
                     Which genre interests you?<br>
-					<input type="radio" name="question3" value="A">Romance<br>
-					<input type="radio" name="question3" value="B">Adventure<br>
-					<input type="radio" name="question3" value="C">Action<br>
+                    <input type="radio" name="question3" value="A">Romance<br>
+                    <input type="radio" name="question3" value="B">Adventure<br>
+                    <input type="radio" name="question3" value="C">Action<br>
                 </div>
                 <div class="question">
-                  If you could be anywhere in the world right now where would you be?<br>
-					<input type="radio" name="question4" value="A">Coffee shop<br>
-					<input type="radio" name="question4" value="B">A beach/The Forest<br>
-					<input type="radio" name="question4" value="C">In the clouds<br>
+                    If you could be anywhere in the world right now where would you be?<br>
+                    <input type="radio" name="question4" value="A">Coffee shop<br>
+                    <input type="radio" name="question4" value="B">A beach/The Forest<br>
+                    <input type="radio" name="question4" value="C">In the clouds<br>
                 </div>
                 <div class="question">
                     What food are you craving most?<br>
-					<input type="radio" name="question5" value="A">Fresh baked bread<br>
-					<input type="radio" name="question5" value="B">Something sweet<br>
-					<input type="radio" name="question5" value="C">Pizza<br>
+                    <input type="radio" name="question5" value="A">Fresh baked bread<br>
+                    <input type="radio" name="question5" value="B">Something sweet<br>
+                    <input type="radio" name="question5" value="C">Pizza<br>
+                    <input type="submit" value="submit">
                 </div>
-			</form>
+            </form>
+        {% elif state == 'answer' %}
+            {{ suggestion }}
         {% endif %}
     </div>
         
