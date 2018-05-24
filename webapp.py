@@ -53,12 +53,34 @@ def home():
 def forum():
     return render_template('forum.html', posts = posts_to_html())
     
-@app.route('/mood-quiz')
+@app.route('/mood-quiz', methods=['GET', 'POST'])
 def moodQuiz():
-    maxValue = 0
-    maxValueName = ''
-    moodDic = ['A': 
-
+    state = ""
+    if "question1" in request.form:
+        majority = ""
+        A = 0
+        B = 0
+        C = 0
+        for value in request.form:
+            print(request.form[value])
+            if request.form[value] == "A":
+                A+=1
+            if request.form[value] == "B":
+                B+=1
+            if request.form[value] == "C":
+                C+=1
+        if A >= B and A >= C:
+            majority = "A"
+            movieSuggestions = Markup("<p>Spirited Away, Howl's Moving Castle, or Kiki's Delivery Service</p>")
+        elif B >= A and B >= C:
+            majority = "B"
+            movieSuggestions = Markup("<p>Ponyo or My Neighbor Totoro</p>")
+        else:
+            majority = "C"
+            movieSuggestions = Markup("<p>Porco Rosso or Castle in the Sky</p>")
+        return render_template('film-for-mood-quiz.html', suggestion = movieSuggestions, state = "answer")
+    return render_template('film-for-mood-quiz.html', state = "quiz")
+    
 @app.route('/fan-quiz', methods=['GET', 'POST'])
 def fanQuiz():
     state = ""
