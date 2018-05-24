@@ -19,6 +19,15 @@
     background-color: white;
 }
 
+#button {
+    background-color: blue;
+}
+
+
+body {
+   background-color:pink;
+}
+
 #sidebar {
     min-width: 200px;
     max-width: 200px;
@@ -61,6 +70,8 @@ a[aria-expanded="true"]::before {
 #home-img {
 	align-self: center;
 	margin: 50px;
+    width:50%;
+    height:50%;
 }
 
 #intro {
@@ -95,6 +106,13 @@ a[aria-expanded="true"]::before {
 
 #fan-quiz {
     margin: 20px;
+}
+
+#mood-quiz {
+    align-content: center;
+    margin: 100px;
+    
+    
 }
 
 .question {
