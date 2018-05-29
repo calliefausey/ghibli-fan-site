@@ -7,11 +7,11 @@ import pymongo
 import pprint
 import os
 import json
-import sys
+import sys"""
 
 app = Flask(__name__)
 
-app.debug = True
+app.debug = True"""
 
 app.secret_key = os.environ['SECRET_KEY']
 
