@@ -1,4 +1,4 @@
-"""from flask import Flask, redirect, url_for, session, request, jsonify, Markup
+from flask import Flask, redirect, url_for, session, request, jsonify, Markup
 from flask_oauthlib.client import OAuth
 from flask import render_template
 from bson.objectid import ObjectId
@@ -43,13 +43,13 @@ oauth = OAuth(app)
 
 @app.context_processor
 def inject_logged_in():
-    return {"logged_in":('github_token' in session)}"""
+    return {"logged_in":('github_token' in session)}
     
 @app.route('/')
 def home():
     return render_template('home.html')
     
-"""@app.route('/forum')
+@app.route('/forum')
 def forum():
     return render_template('forum.html', posts = posts_to_html())
     
@@ -172,7 +172,7 @@ def updatePost():
 
 @app.route('/update-cancel')
 def updateCancel():
-    return Markup("<button id='toggle' value='post'>Post</button>")"""
+    return Markup("<button id='toggle' value='post'>Post</button>")
 
 if __name__ == '__main__':
     app.run()
