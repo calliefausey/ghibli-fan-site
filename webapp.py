@@ -11,9 +11,8 @@ import sys"""
 
 app = Flask(__name__)
 
-app.debug = True"""
-
-app.secret_key = os.environ['SECRET_KEY']
+app.debug = True
+"""app.secret_key = os.environ['SECRET_KEY']
 
 url = 'mongodb://{}:{}@{}:{}/{}'.format(
 	os.environ["MONGO_USERNAME"],
