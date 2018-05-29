@@ -1,4 +1,4 @@
-"""from flask import Flask, redirect, url_for, session, request, jsonify, Markup
+from flask import Flask, redirect, url_for, session, request, jsonify, Markup
 from flask_oauthlib.client import OAuth
 from flask import render_template
 from bson.objectid import ObjectId
@@ -7,7 +7,7 @@ import pymongo
 import pprint
 import os
 import json
-import sys"""
+import sys
 
 app = Flask(__name__)
 
