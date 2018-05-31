@@ -1,7 +1,7 @@
 from flask import Flask, redirect, url_for, session, request, jsonify, Markup
 from flask_oauthlib.client import OAuth
 from flask import render_template
-from bson.objectid import ObjectId
+#from bson.objectid import ObjectId
 
 import pymongo
 import pprint
@@ -12,8 +12,7 @@ import sys
 app = Flask(__name__)
 
 app.debug = True
-
-app.secret_key = os.environ['SECRET_KEY']
+"""app.secret_key = os.environ['SECRET_KEY']
 
 url = 'mongodb://{}:{}@{}:{}/{}'.format(
 	os.environ["MONGO_USERNAME"],
