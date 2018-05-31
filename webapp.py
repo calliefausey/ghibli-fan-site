@@ -27,7 +27,6 @@ collection = db['posts']
 
 oauth = OAuth(app)
 
-
 #github = oauth.remote_app(
     #'github',
     #consumer_key=os.environ['GITHUB_CLIENT_ID'], #your web app's "username" for github's OAuth
