@@ -12,7 +12,7 @@ import sys
 app = Flask(__name__)
 
 app.debug = True
-"""app.secret_key = os.environ['SECRET_KEY']
+app.secret_key = os.environ['SECRET_KEY']
 
 url = 'mongodb://{}:{}@{}:{}/{}'.format(
 	os.environ["MONGO_USERNAME"],
@@ -42,13 +42,13 @@ oauth = OAuth(app)
 
 @app.context_processor
 def inject_logged_in():
-    return {"logged_in":('github_token' in session)}"""
+    return {"logged_in":('github_token' in session)}
     
 @app.route('/')
 def home():
     return render_template('home.html')
     
-"""@app.route('/forum')
+@app.route('/forum')
 def forum():
     return render_template('forum.html', posts = posts_to_html())
     
@@ -171,7 +171,7 @@ def updatePost():
 
 @app.route('/update-cancel')
 def updateCancel():
-    return Markup("<button id='toggle' value='post'>Post</button>")"""
+    return Markup("<button id='toggle' value='post'>Post</button>")
 
 if __name__ == '__main__':
     app.run()
