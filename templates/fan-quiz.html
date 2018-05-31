@@ -5,7 +5,7 @@
 {% block content %}
     <div id="fan-quiz">
         {% if state == 'quiz' %}
-            <h1>How much do you know about Studio Ghibli?</h1>
+            <h1 id="header2">How much do you know about Studio Ghibli?</h1>
 
             <form action={{ url_for("fanQuiz") }} method="POST">
                 <div class="question">
