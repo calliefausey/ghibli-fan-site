@@ -27,17 +27,17 @@ collection = db['posts']
 
 oauth = OAuth(app)
 
-#github = oauth.remote_app(
-    #'github',
-    #consumer_key=os.environ['GITHUB_CLIENT_ID'], #your web app's "username" for github's OAuth
-    #consumer_secret=os.environ['GITHUB_CLIENT_SECRET'],#your web app's "password" for github's OAuth
-    #request_token_params={'scope': 'user:email'}, #request read-only access to the user's email.  For a list of possible scopes, see developer.github.com/apps/building-oauth-apps/scopes-for-oauth-apps
-    #base_url='https://api.github.com/',
-    #request_token_url=None,
-    #access_token_method='POST',
-    #access_token_url='https://github.com/login/oauth/access_token',  
-    #authorize_url='https://github.com/login/oauth/authorize' #URL for github's OAuth login
-#)
+github = oauth.remote_app(
+    'github',
+    consumer_key=os.environ['GITHUB_CLIENT_ID'], #your web app's "username" for github's OAuth
+    consumer_secret=os.environ['GITHUB_CLIENT_SECRET'],#your web app's "password" for github's OAuth
+    request_token_params={'scope': 'user:email'}, #request read-only access to the user's email.  For a list of possible scopes, see developer.github.com/apps/building-oauth-apps/scopes-for-oauth-apps
+    base_url='https://api.github.com/',
+    request_token_url=None,
+    access_token_method='POST',
+    access_token_url='https://github.com/login/oauth/access_token',  
+    authorize_url='https://github.com/login/oauth/authorize' #URL for github's OAuth login
+)
 
 @app.context_processor
 def inject_logged_in():
