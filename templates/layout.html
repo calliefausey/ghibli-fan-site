@@ -14,15 +14,14 @@
         <title>{% block title %}{% endblock %}</title>
     </head>
     <body>
-        {% if logged_in == true %}
-            <a href='/logout'>
-                <button>Logout</button>
-            </a>
-        {% else %}
-            <a href='/login'>
-                <button>Login</button>
-            </a>
-        {% endif %}
+        <div class="profile-action">
+            {% if logged_in %}
+                <p>Github userid: {{ session['user_data']['login'] }}</p>
+                <a class="butt" href='/logout'>Logout</a>
+            {% else %}
+                <a class="butt" href='/login'>Login</a>
+            {% endif %}
+        </div>
         
         <div class="wrapper">
             <nav id="sidebar">

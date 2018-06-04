@@ -59,8 +59,7 @@ body {
 #sidebarCollapse {
     margin-left: 20px;
     background-color: #000000;
-    border-color: #FFFFFF;
-    outline: none;
+    border: none;
 }
 
 a[data-toggle="collapse"] {
@@ -134,8 +133,6 @@ a[aria-expanded="true"]::before {
     
 }
 
-
-
 .question {
     margin: 10px;
     margin-left: 30px;
@@ -148,4 +145,19 @@ a[aria-expanded="true"]::before {
     color: white;
     background-color: #41bee1;
     border-radius: 4px;
+}
+
+.profile-action {
+    position: absolute;
+    right: 0px;
+    margin-right: 20px;
+    margin-top: 10px;
+    padding: 5px;
+    border: none;
+    border-radius: 5px;
+    background-color: #000000;
+}
+
+.butt {
+    color: #FFFFFF;
 }
