@@ -1,7 +1,7 @@
 from flask import Flask, redirect, url_for, session, request, jsonify, Markup
 from flask_oauthlib.client import OAuth
 from flask import render_template
-#from bson.objectid import ObjectId
+from bson.objectid import ObjectId
 
 import pymongo
 import pprint
@@ -145,7 +145,7 @@ def login():
 @app.route('/logout')
 def logout():
 	session.clear()
-	return render_template('message.html', message='You were logged out')
+	return render_template('home.html', message='You were logged out')
 
 @app.route('/login/authorized')
 def authorized():
@@ -171,6 +171,10 @@ def updatePost():
 @app.route('/update-cancel')
 def updateCancel():
     return Markup("<button id='toggle' value='post'>Post</button>")
+    
+@github.tokengetter
+def get_github_oauth_token():
+    return session.get('github_token')
 
 if __name__ == '__main__':
     app.run()
